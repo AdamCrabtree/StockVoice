@@ -10,10 +10,9 @@ Currently there is a very limited amount of commmands. All statements must start
 
 next comes whether what type of graph you want to see if you say show me
 
-"as a bar graph the" or "as a bar graph the"
+"as a bar graph the" or "as a line graph the"
 
 next comes the modifier of what part of the stock of the compan you want to see. IE close, open, high, low, etc.
-
 
 then the company name. If you are using a graph you can also specify the specific time period with
 
