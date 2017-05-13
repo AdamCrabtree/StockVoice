@@ -1,0 +1,11 @@
+﻿<grammar version="1.0" xml:lang="en-US" root="rootRule"
+ xmlns="http://www.w3.org/2001/06/grammar">
+  <rule id="root rule">
+      <one-of>
+        <item> song </item>
+        <item> tune </item>
+        <item> track </item>
+        <item> item </item>
+      </one-of>
+  </rule>"
+</grammar>
