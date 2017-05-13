@@ -2,7 +2,7 @@
 
 This program allows users to pull up specific company information, or have it read to them through microsoft voice, with their voice and specific commands.
 
-##Speech format
+## Speech format
 
 Currently there is a very limited amount of commmands. All statements must start out with either 
 
@@ -19,7 +19,7 @@ then the company name. If you are using a graph you can also specify the specifi
 
 from (month, year) to (month, year).
 
-##Example
+## Example
 
 show me as a line graph the close of BancFirst Corporation from January 2012 to January 2016
 
