@@ -29,13 +29,34 @@ namespace StockVoice
             companyNameBuilder.Append(companyModifierSemantics);
             Choices companyModifierChoices = new Choices();
             companyModifierChoices.Add(companyNameBuilder);
-            GrammarBuilder companyModifierBuilder = new GrammarBuilder();
-            companyModifierBuilder.Append(companyModifierChoices, 0 , 5);
-            companyModifierBuilder.Append("and", 0, 1);
+            GrammarBuilder companyModifierBuilder = new GrammarBuilder(companyModifierChoices);
+
+            SemanticResultKey companyModifierSemantics2 = new SemanticResultKey("CompanyNameModifier2", companyNameChoices);
+            GrammarBuilder companyNameBuilder2 = new GrammarBuilder();
+            companyNameBuilder2.Append(companyModifierSemantics2);
+            Choices companyModifierChoices2 = new Choices();
+            companyModifierChoices2.Add(companyNameBuilder2);
+            GrammarBuilder companyModifierBuilder2 = new GrammarBuilder(companyModifierChoices2);
 
             string[] myString = companyNames.ToArray();
 
             Choices stockNameChoices = new Choices(myString);
+
+
+            Choices displayChoices = new Choices();
+            SemanticResultValue displayChoicesSRV;
+            displayChoicesSRV = new SemanticResultValue("tell me the", "tell me the");
+            displayChoices.Add(displayChoicesSRV);
+            displayChoicesSRV = new SemanticResultValue("show me the", "show me the");
+            displayChoices.Add(displayChoicesSRV);
+            SemanticResultKey displayChoicesSemantics = new SemanticResultKey("DisplayOption", displayChoicesSRV);
+
+            GrammarBuilder displayGrammarBuilder = new GrammarBuilder();
+            displayGrammarBuilder.Append(displayChoicesSemantics);
+            Choices displayPermutations = new Choices();
+            displayPermutations.Add(displayGrammarBuilder);
+            GrammarBuilder displayPermutationGrammarBuilder = new GrammarBuilder();
+            displayGrammarBuilder.Append(displayPermutationGrammarBuilder);
 
 
             Choices modeChoices = new Choices("tell me the", "show me");
@@ -191,11 +212,12 @@ namespace StockVoice
             choicesGrammarBuilder.Append(new SemanticResultKey("Mode", modeChoices));
             choicesGrammarBuilder.Append(permutationList, 0, 1);
             choicesGrammarBuilder.Append(new SemanticResultKey("Modifier", modifierChoices));
-            choicesGrammarBuilder.Append(companyModifierBuilder, 0, 1);
+            choicesGrammarBuilder.Append(companyModifierChoices);
+            choicesGrammarBuilder.Append("and", 0, 1);
             choicesGrammarBuilder.Append("from", 0, 1);
             choicesGrammarBuilder.Append(monthModifierBuilder, 0, 1);
             choicesGrammarBuilder.Append(YearModifierBuilder, 0, 1);
-            choicesGrammarBuilder.Append("to", 0, 1);
+           choicesGrammarBuilder.Append("to", 0, 1);
             choicesGrammarBuilder.Append(monthModifierBuilder2, 0, 1);
             choicesGrammarBuilder.Append(YearModifierBuilder2, 0, 1);
             Grammar choicesGrammar = new Grammar(choicesGrammarBuilder);

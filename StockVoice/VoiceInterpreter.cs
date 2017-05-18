@@ -18,7 +18,7 @@ namespace StockVoice
             if (e.Result.Semantics.ContainsKey("CompanyName"))
             {
                 var stock = nasdaqStocks.Find(stockSearch => stockSearch.name == e.Result.Semantics["CompanyName"].Value.ToString());
-                if (e.Result.Semantics["Mode"].Value.ToString() == "tell me the")
+                if (e.Result.Semantics.ContainsKey("DisplayOption"))
                 {
                     HandleDisplayMode(stock, e);
                 }
